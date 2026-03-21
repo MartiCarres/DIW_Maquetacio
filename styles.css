@@ -1,0 +1,320 @@
+/* COMENTARI: Definició de variables (mínim 3 requerides) [cite: 19] */
+:root {
+    --color-fons-gris: #f4f4f4;
+    --color-accent-fosc: #2c3e50;
+    --mida-base: 1rem; /* Ús de rem obligatori [cite: 19] */
+    --vora-estandard: 1px solid #333;
+    --color-primary: #2c3e50; /* Blau fosc elegant */
+    --color-secondary: #34495e; /* Blau mitjà */
+    --color-accent-formal: #d4af37; /* Or per accents */
+    --color-background-light: #fefefe;
+    --color-text-dark: #2c3e50;
+}
+
+/* COMENTARI: Estils globals i reset */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-size: var(--mida-base);
+    overflow-x: hidden; /* No scroll horitzontal [cite: 22] */
+}
+
+/* Contingut principal amb padding per al nav fix */
+main {
+    padding-top: 4rem;
+}
+
+/* COMENTARI: Menú superior fix amb Flexbox [cite: 72, 73] */
+.nav-principal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--color-background-light);
+    font-weight: 500;
+    margin-left: 2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--color-background-light);
+}
+
+/* COMENTARI: Botó flotant de reserva [cite: 80, 82] */
+.boto-flotant {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--color-accent-formal);
+    color: var(--color-primary);
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: 8px;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* COMENTARI: Capçalera Hero [cite: 88, 91] */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-image: url('fotos/capçelera.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-content {
+    text-align: center;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 600px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+/* COMENTARI: Secció Sobre Nosaltres [cite: 108] */
+.seccio-nosaltres { 
+    padding: 4rem 10%; 
+    margin-bottom: 4rem; 
+    background: linear-gradient(135deg, var(--color-background-light), #f0f0f0);
+}
+.sobre-fila {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+.sobre-fila.reverse { flex-direction: row-reverse; }
+.img-curvada {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 20px; /* Contorns arrodonits [cite: 108] */
+}
+.sobre-text p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+/* Secció Carta */
+.seccio-carta { 
+    margin-bottom: 4rem; 
+    background: linear-gradient(135deg, #fafafa, #e0e0e0);
+}
+
+/* Secció Galeria */
+.seccio-galeria { 
+    margin-bottom: 4rem; 
+    background: linear-gradient(135deg, #f5f5f5, #d0d0d0);
+}
+
+/* Secció Reserva */
+.seccio-reserva { 
+    margin-bottom: 4rem; 
+    background: linear-gradient(135deg, #f8f8f8, #e8e8e8);
+}
+
+/* COMENTARI: MAQUETACIÓ CARTA AMB GRID-TEMPLATE-AREAS [cite: 26, 131, 132] */
+.grid-contenidor-carta {
+    display: grid;
+    margin: 2rem 10%;
+    gap: 15px;
+    grid-template-areas: 
+        "header header header"
+        "m1-lab m1-cont m1-cont"
+        "m2-lab m2-cont m2-cont";
+}
+
+.area-menu-titol { grid-area: header; border: var(--vora-estandard); text-align: center; padding: 1.5rem; border-radius: 15px; }
+.area-m1-etiqueta { grid-area: m1-lab; border: var(--vora-estandard); padding: 2rem 1rem; display: flex; align-items: center; }
+.area-m1-contingut { grid-area: m1-cont; border: var(--vora-estandard); padding: 1.5rem; }
+.area-m2-etiqueta { grid-area: m2-lab; border: var(--vora-estandard); padding: 2rem 1rem; display: flex; align-items: center; }
+.area-m2-contingut { grid-area: m2-cont; border: var(--vora-estandard); padding: 1.5rem; }
+
+.plats-flex { display: flex; gap: 1rem; margin-top: 1rem; }
+.plat-item { position: relative; flex: 1; }
+.plat-item img { width: 100%; height: 150px; object-fit: cover; display: block; }
+.plat-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    text-align: center;
+    padding: 5px 0;
+}
+
+/* COMENTARI: Galeria Flexbox i filtres [cite: 139, 147] */
+.galeria-contenidor {
+    display: grid;
+    grid-template-columns: repeat(4, 180px);
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem 10%;
+}
+
+.galeria-foto img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border: 2px solid #ddd;
+    transition: 0.3s;
+}
+
+/* Hover galeria: border i fosca [cite: 144] */
+.galeria-foto img:hover {
+    border-color: black;
+    filter: brightness(40%) !important;
+}
+
+/* Requeriment: Imatges 1, 4, 5 i 8 més fosques [cite: 147] */
+.galeria-foto:nth-child(1) img,
+.galeria-foto:nth-child(4) img,
+.galeria-foto:nth-child(5) img,
+.galeria-foto:nth-child(8) img {
+    filter: brightness(60%);
+}
+
+/* COMENTARI: Formulari [cite: 150] */
+.seccio-reserva { padding: 4rem 10%; }
+.formulari-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+.ample-total { grid-column: span 2; }
+.camp label { display: block; margin-bottom: 5px; }
+.camp input, .camp textarea { width: 100%; padding: 10px; border: var(--vora-estandard); }
+.camp-boto button {
+    background: var(--color-primary);
+    color: white;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.camp-boto button:hover {
+    background: var(--color-secondary);
+}
+
+/* COMENTARI: Footer [cite: 161, 168] */
+.peu-pagina {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 10%;
+    border-top: var(--vora-estandard);
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    color: white;
+}
+.contacte-item { display: flex; align-items: center; gap: 10px; margin-bottom: 5px; }
+.footer-logo { width: 120px; }
+
+/* COMENTARI: Responsivitat [cite: adaptació] */
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 1rem;
+    }
+    .nav-link {
+        margin-left: 1rem;
+        padding: 0.5rem;
+    }
+    .hero {
+        height: 80vh;
+    }
+    .hero-content {
+        padding: 1.5rem;
+    }
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    .hero-content p {
+        font-size: 1rem;
+    }
+    main {
+        padding-top: 3rem;
+    }
+    .seccio-nosaltres { padding: 4rem 5%; }
+    .sobre-fila {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .sobre-fila.reverse {
+        flex-direction: column;
+    }
+    .img-curvada {
+        width: 100%;
+        max-width: 250px;
+    }
+    .grid-contenidor-carta {
+        margin: 2rem 5%;
+        grid-template-areas: 
+            "header"
+            "m1-lab"
+            "m1-cont"
+            "m2-lab"
+            "m2-cont";
+        grid-template-columns: 1fr;
+    }
+    .galeria-contenidor {
+        padding: 2rem 5%;
+        grid-template-columns: repeat(2, 150px);
+        justify-content: center;
+    }
+    .galeria-foto img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+    }
+    .seccio-reserva { padding: 4rem 5%; }
+    .formulari-grid {
+        grid-template-columns: 1fr;
+    }
+    .ample-total, .camp-boto {
+        grid-column: span 1;
+    }
+    .peu-pagina {
+        padding: 2rem 5%;
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+}
