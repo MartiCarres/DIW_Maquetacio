@@ -1,0 +1,315 @@
+/* 
+   COMENTARI: Definició de variables
+    */
+:root {
+    --color-fons-gris: #f4f4f4;
+    --color-accent-fosc: #2c3e50;
+    --mida-base: 1rem; /* Ús de rem obligatori */
+    --vora-estandard: 1px solid #333;
+    --color-primary: #2c3e50;
+    --color-secondary: #34495e;
+    --color-accent-formal: #d4af37;
+    --color-background-light: #fefefe;
+    --color-text-dark: #2c3e50;
+}
+
+/*
+   COMENTARI: Estils globals i reset
+   */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-size: var(--mida-base);
+    overflow-x: hidden; /* Evita l'scroll horitzontal */
+    color: var(--color-text-dark);
+}
+
+main {
+    padding-top: 4rem;
+}
+
+/* 
+   COMENTARI: Menú superior fix amb Flexbox
+    */
+.nav-principal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--color-background-light);
+    font-weight: 500;
+    margin-left: 2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* 
+   COMENTARI: Botó flotant de reserva (Sempre visible)
+   */
+.boto-flotant {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--color-accent-formal);
+    color: var(--color-primary);
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: 8px;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    font-weight: bold;
+}
+
+/* 
+   COMENTARI: Capçalera Hero
+   */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('fotos/capçelera.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-content {
+    text-align: center;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 600px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* 
+   COMENTARI: Secció Sobre Nosaltres (Flexbox)
+  */
+.seccio-nosaltres { 
+    padding: 4rem 10%; 
+    background: linear-gradient(135deg, var(--color-background-light), #f0f0f0);
+}
+
+.sobre-fila {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.sobre-fila.reverse { flex-direction: row-reverse; }
+
+.img-curvada {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.sobre-text { flex: 1; }
+
+/* 
+   COMENTARI: Maquetació Carta (Grid con Areas)
+  */
+.seccio-carta { padding: 4rem 0; background: #fafafa; }
+
+.grid-contenidor-carta {
+    display: grid;
+    margin: 0 10%;
+    gap: 15px;
+    grid-template-areas: 
+        "header header header"
+        "m1-lab m1-cont m1-cont"
+        "m2-lab m2-cont m2-cont";
+}
+
+.area-menu-titol { grid-area: header; border: var(--vora-estandard); text-align: center; padding: 1.5rem; border-radius: 15px; }
+.area-m1-etiqueta { grid-area: m1-lab; border: var(--vora-estandard); padding: 2rem; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+.area-m1-contingut { grid-area: m1-cont; border: var(--vora-estandard); padding: 1.5rem; }
+.area-m2-etiqueta { grid-area: m2-lab; border: var(--vora-estandard); padding: 2rem; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+.area-m2-contingut { grid-area: m2-cont; border: var(--vora-estandard); padding: 1.5rem; }
+
+.plats-flex { display: flex; gap: 1rem; margin-top: 1rem; }
+.plat-item { position: relative; flex: 1; }
+.plat-item img { width: 100%; height: 150px; object-fit: cover; }
+
+.plat-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    text-align: center;
+    padding: 5px 0;
+    font-size: 0.9rem;
+}
+
+/* 
+   COMENTARI: Galeria (Grid)
+    */
+.seccio-galeria { padding: 4rem 10%; background: #eee; }
+
+.galeria-contenidor {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.galeria-foto img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border: 2px solid #ddd;
+    transition: 0.3s;
+}
+
+.galeria-foto img:hover {
+    border-color: black;
+    filter: brightness(40%) !important;
+}
+
+/* Requeriment: Imatges específiques més fosques */
+.galeria-foto:nth-child(1) img,
+.galeria-foto:nth-child(4) img,
+.galeria-foto:nth-child(5) img,
+.galeria-foto:nth-child(8) img {
+    filter: brightness(60%);
+}
+
+/* 
+   COMENTARI: Formulari de Reserva (Grid)
+    */
+.seccio-reserva { padding: 4rem 10%; background: #fff; }
+
+.formulari-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.ample-total { grid-column: span 2; }
+.camp label { display: block; margin-bottom: 5px; font-weight: bold; }
+.camp input, .camp textarea { width: 100%; padding: 10px; border: var(--vora-estandard); box-sizing: border-box; }
+
+.camp-boto { text-align: center; }
+.camp-boto button {
+    background: var(--color-primary);
+    color: white;
+    padding: 1rem 3rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+/* 
+   COMENTARI: Footer
+    */
+.peu-pagina {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 10%;
+    background: var(--color-primary);
+    color: white;
+}
+
+.footer-logo { width: 120px; }
+.contacte-item { display: flex; align-items: center; gap: 10px; margin-bottom: 5px; }
+
+/* 
+   COMENTARI: RESPONSIVE - TABLETS (Max 768px)
+    */
+@media (max-width: 768px) {
+    .nav-container { padding: 1rem; justify-content: center; }
+    .nav-link { margin: 0 0.5rem; font-size: 0.9rem; }
+
+    .hero-content h1 { font-size: 2.2rem; }
+
+    .sobre-fila, .sobre-fila.reverse {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .grid-contenidor-carta {
+        grid-template-areas: 
+            "header"
+            "m1-lab"
+            "m1-cont"
+            "m2-lab"
+            "m2-cont";
+        grid-template-columns: 1fr;
+    }
+
+    .galeria-contenidor { grid-template-columns: repeat(2, 1fr); }
+
+    /* Requeriment Footer: Sense logo i centrat */
+    .peu-pagina {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    .footer-logo { display: none; }
+    .contacte-item { justify-content: center; }
+}
+
+/*
+   COMENTARI: RESPONSIVE - MÒBILS (Max 576px)
+  */
+@media (max-width: 576px) {
+    .seccio-nosaltres, .seccio-galeria, .seccio-reserva { padding: 3rem 5%; }
+
+    .hero-content h1 { font-size: 1.8rem; }
+    
+    /* Adaptació de la carta a mòbil */
+    .plats-flex { flex-direction: column; }
+    .plat-item img { height: 180px; }
+
+    /* Galeria a una columna */
+    .galeria-contenidor { grid-template-columns: 1fr; }
+
+    /* Formulari a una columna */
+    .formulari-grid { grid-template-columns: 1fr; }
+    .ample-total { grid-column: span 1; }
+
+    .boto-flotant {
+        bottom: 1rem;
+        right: 1rem;
+        padding: 0.7rem 1rem;
+        font-size: 0.85rem;
+    }
+}
+```
