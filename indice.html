@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ca">
+<!-- Capçalera de la pàgina -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Els Coberts - Pràctica 9</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<!-- Cos de la pàgina -->
+<body>
+
+    <!-- Navegació principal -->
+    <nav class="nav-principal">
+        <div class="nav-container">
+            <a href="#nosaltres" class="nav-link">Nosaltres</a>
+            <a href="#carta" class="nav-link">Carta</a>
+            <a href="#galeria" class="nav-link">Galeria</a>
+        </div>
+    </nav>
+
+    <!-- Botó flotant de reserva -->
+    <a href="#reserva-section" class="boto-flotant">Reservar</a>
+
+    <!-- Secció hero -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Restaurant <strong>els coberts</strong></h1>
+            <p>Benvingut al nostre restaurant, on la tradició i la innovació s'unifiquen per oferir una experiència gastronòmica única.</p>
+        </div>
+    </header>
+
+    <!-- Contingut principal -->
+    <main>
+        <!-- Secció Sobre Nosaltres -->
+        <section id="nosaltres" class="seccio-nosaltres">
+            <h2>Sobre nosaltres</h2>
+            <div class="sobre-fila">
+                <img src="fotos/cuina.jpg" alt="Imatge de la cuina" class="img-curvada">
+                <div class="sobre-text">
+                    <p>Som un restaurant apassionat per la bona gastronomia i per oferir una experiència única als nostres clients. Treballem amb ingredients frescos i de proximitat per garantir la màxima qualitat en cada un dels nostres plats.</p>
+                    <p>El nostre equip de cuina combina la tradició amb la innovació per crear receptes plenes de sabor que satisfan tots els paladars. Cuidem cada detall, des de la preparació fins a la presentació, perquè cada àpat sigui especial.</p>
+                </div>
+            </div>
+            <div class="sobre-fila reverse">
+                <img src="fotos/sala.jpg" alt="Imatge de la sala" class="img-curvada">
+                <div class="sobre-text">
+                    <p>El nostre local està dissenyat per oferir un ambient acollidor i elegant, ideal tant per a sopars en parella com per a trobades amb amics o celebracions especials. La nostra prioritat és que et sentis com a casa mentre gaudeixes del millor menjar. </p>
+                    <p>Vine a descobrir el nostre món gastronòmic i deixa't sorprendre per la nostra carta variada i deliciosa. T'esperem amb els coberts preparats!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Secció Carta -->
+        <section id="carta" class="seccio-carta">
+            <h2>Carta</h2>
+            <div class="grid-contenidor-carta">
+                <div class="area-menu-titol">Menú</div>
+                
+                <div class="area-m1-etiqueta">Menú 1</div>
+                <div class="area-m1-contingut">
+                    <h3>Contingut</h3>
+                    <p>Descobreix la nostra selecció de plats elaborats amb ingredients frescos i de qualitat. Oferim opcions tradicionals amb un toc modern, pensades per satisfer tots els gustos.</p>
+                    <div class="plats-flex">
+                        <div class="plat-item">
+                            <img src="fotos/pasta.jpg" alt="Plat de pasta">
+                            <div class="plat-overlay">Pasta</div> </div>
+                        <div class="plat-item">
+                            <img src="fotos/entrants.jpg" alt="Plat d'entrants">
+                            <div class="plat-overlay">Entrants</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="area-m2-etiqueta">Menú 2</div>
+                <div class="area-m2-contingut">
+                    <h3>Contingut</h3>
+                    <p>Plats equilibrats i saludables preparats amb productes de temporada per garantir el millor gust i qualitat nutricional.</p>
+                    <div class="plats-flex">
+                        <div class="plat-item">
+                            <img src="fotos/amanida.jpg" alt="Amanida fresca">
+                            <div class="plat-overlay">Amanida</div>
+                        </div>
+                        <div class="plat-item">
+                            <img src="fotos/peix.jpg" alt="Peix al forn">
+                            <div class="plat-overlay">Peix</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Secció Galeria -->
+        <section id="galeria" class="seccio-galeria">
+            <h2>Galeria d'imatges</h2>
+            <div class="galeria-contenidor">
+                <div class="galeria-foto"><img src="fotos/1.jpg" alt="Foto 1"></div>
+                <div class="galeria-foto"><img src="fotos/2.jpg" alt="Foto 2"></div>
+                <div class="galeria-foto"><img src="fotos/3.jpg" alt="Foto 3"></div>
+                <div class="galeria-foto"><img src="fotos/4.jpg" alt="Foto 4"></div>
+                <div class="galeria-foto"><img src="fotos/5.jpg" alt="Foto 5"></div>
+                <div class="galeria-foto"><img src="fotos/6.jpg" alt="Foto 6"></div>
+                <div class="galeria-foto"><img src="fotos/7.jpg" alt="Foto 7"></div>
+                <div class="galeria-foto"><img src="fotos/8.jpg" alt="Foto 8"></div>
+            </div>
+        </section>
+
+        <!-- Secció Reserva -->
+        <section id="reserva-section" class="seccio-reserva">
+            <h2>Reserva</h2>
+            <form class="formulari-grid">
+                <div class="camp">
+                    <label for="nom">Nom</label>
+                    <input type="text" id="nom">
+                </div>
+                <div class="camp">
+                    <label for="persones">Número de persones</label>
+                    <input type="number" id="persones">
+                </div>
+                <div class="camp">
+                    <label for="data">Data</label>
+                    <input type="date" id="data">
+                </div>
+                <div class="camp">
+                    <label for="hora">Hora</label>
+                    <input type="time" id="hora">
+                </div>
+                <div class="camp ample-total">
+                    <label for="desc">Descripció</label>
+                    <textarea id="desc"></textarea>
+                </div>
+                <div class="camp-boto">
+                    <button type="submit">Reservar</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <!-- Peu de pàgina -->
+    <footer class="peu-pagina">
+        <div class="footer-esquerra">
+            <img src="/fotos/logo.jpg" alt="Logotip Restaurant" class="footer-logo">
+        </div>
+        <div class="footer-dreta">
+            <div class="contacte-item">
+                <span class="material-icons">email</span>
+                <span>els.coberts@gmail.com</span>
+            </div>
+            <div class="contacte-item">
+                <span class="material-icons">phone</span>
+                <span>+34 666 123 456</span>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
