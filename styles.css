@@ -1,12 +1,12 @@
-/* COMENTARI: Definició de variables (mínim 3 requerides) [cite: 19] */
+/* COMENTARI: Definició de variables (mínim 3 requerides) */
 :root {
     --color-fons-gris: #f4f4f4;
     --color-accent-fosc: #2c3e50;
-    --mida-base: 1rem; /* Ús de rem obligatori [cite: 19] */
+    --mida-base: 1rem;
     --vora-estandard: 1px solid #333;
-    --color-primary: #2c3e50; /* Blau fosc elegant */
-    --color-secondary: #34495e; /* Blau mitjà */
-    --color-accent-formal: #d4af37; /* Or per accents */
+    --color-primary: #2c3e50;
+    --color-secondary: #34495e;
+    --color-accent-formal: #d4af37;
     --color-background-light: #fefefe;
     --color-text-dark: #2c3e50;
 }
@@ -16,15 +16,14 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     font-size: var(--mida-base);
-    overflow-x: hidden; /* No scroll horitzontal [cite: 22] */
+    overflow-x: hidden;
 }
 
-/* Contingut principal amb padding per al nav fix */
 main {
     padding-top: 4rem;
 }
 
-/* COMENTARI: Menú superior fix amb Flexbox [cite: 72, 73] */
+/* COMENTARI: Menú superior fix amb Flexbox */
 .nav-principal {
     position: fixed;
     top: 0;
@@ -33,6 +32,13 @@ main {
     background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     z-index: 1000;
+    /* EXERCICI 5: Transició suau per quan s'encongeix el menú amb scroll */
+    transition: padding 0.3s ease, background-color 0.3s ease;
+}
+
+/* EXERCICI 5: Estat reduït del menú quan es fa scroll */
+.nav-principal.nav-petita .nav-container {
+    padding: 0.4rem 2rem;
 }
 
 .nav-container {
@@ -42,6 +48,8 @@ main {
     padding: 1rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    /* EXERCICI 5: Transició del padding del contenidor */
+    transition: padding 0.3s ease;
 }
 
 .nav-link {
@@ -59,7 +67,7 @@ main {
     color: var(--color-background-light);
 }
 
-/* COMENTARI: Botó flotant de reserva [cite: 80, 82] */
+/* COMENTARI: Botó flotant de reserva */
 .boto-flotant {
     position: fixed;
     bottom: 2rem;
@@ -73,7 +81,34 @@ main {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-/* COMENTARI: Capçalera Hero [cite: 88, 91] */
+/* =====================================================
+ * COMENTARI EXERCICI 2 - ANIMACIÓ HERO (keyframes CSS)
+ * El text apareix, puja i canvia de color taronja a blanc
+ * ===================================================== */
+@keyframes apareixerText {
+    0% {
+        opacity: 0;
+        transform: translateY(60px);
+        color: transparent;
+    }
+    40% {
+        opacity: 0.5;
+        transform: translateY(30px);
+        color: orange;
+    }
+    70% {
+        opacity: 0.8;
+        transform: translateY(10px);
+        color: orange;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        color: #ffffff;
+    }
+}
+
+/* COMENTARI: Capçalera Hero */
 .hero {
     position: relative;
     width: 100%;
@@ -97,18 +132,29 @@ main {
     max-width: 600px;
 }
 
+/* EXERCICI 2: Apliquem l'animació al h1 i al paràgraf de la capçalera */
 .hero-content h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    animation-name: apareixerText;
+    animation-duration: 2s;
+    animation-delay: 0.2s;
+    animation-fill-mode: forwards; /* Es queda en l'estat final */
+    opacity: 0; /* Invisible fins que comença l'animació */
 }
 
 .hero-content p {
     font-size: 1.2rem;
     line-height: 1.6;
+    animation-name: apareixerText;
+    animation-duration: 2s;
+    animation-delay: 0.6s;
+    animation-fill-mode: forwards;
+    opacity: 0;
 }
 
-/* COMENTARI: Secció Sobre Nosaltres [cite: 108] */
+/* COMENTARI: Secció Sobre Nosaltres */
 .seccio-nosaltres { 
     padding: 4rem 10%; 
     margin-bottom: 4rem; 
@@ -125,7 +171,7 @@ main {
     width: 250px;
     height: 250px;
     object-fit: cover;
-    border-radius: 20px; /* Contorns arrodonits [cite: 108] */
+    border-radius: 20px;
 }
 .sobre-text p {
     margin-bottom: 1rem;
@@ -150,7 +196,7 @@ main {
     background: linear-gradient(135deg, #f8f8f8, #e8e8e8);
 }
 
-/* COMENTARI: MAQUETACIÓ CARTA AMB GRID-TEMPLATE-AREAS [cite: 26, 131, 132] */
+/* COMENTARI: MAQUETACIÓ CARTA AMB GRID-TEMPLATE-AREAS */
 .grid-contenidor-carta {
     display: grid;
     margin: 2rem 10%;
@@ -180,7 +226,31 @@ main {
     padding: 5px 0;
 }
 
-/* COMENTARI: Galeria Flexbox i filtres [cite: 139, 147] */
+/* =====================================================
+ * COMENTARI EXERCICI 2b - ANIMACIÓ DE 4 FRAMES (targeta menú)
+ * Canvia: opacity, background-color, transform (3 propietats)
+ * ===================================================== */
+@keyframes entradaTargeta {
+    0%   { opacity: 0; background-color: #e0e0e0; transform: translateY(20px); }
+    33%  { opacity: 0.4; background-color: #c8d8e8; transform: translateY(10px); }
+    66%  { opacity: 0.8; background-color: #d4af37; transform: translateY(4px); }
+    100% { opacity: 1; background-color: transparent; transform: translateY(0); }
+}
+
+/* EXERCICI 2b: Aplicada al títol del menú */
+.animacio-targeta {
+    animation-name: entradaTargeta;
+    animation-duration: 1.5s;
+    animation-delay: 0.3s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+/* =====================================================
+ * COMENTARI EXERCICI 1 - TRANSICIONS GALERIA
+ * Hover: scale, rotate i grayscale (filter)
+ * overflow: hidden al pare per evitar desbordament
+ * ===================================================== */
 .galeria-contenidor {
     display: grid;
     grid-template-columns: repeat(4, 180px);
@@ -189,21 +259,29 @@ main {
     padding: 2rem 10%;
 }
 
+/* overflow hidden per contenir la transformació dins del pare */
+.galeria-foto {
+    overflow: hidden;
+}
+
 .galeria-foto img {
     width: 180px;
     height: 180px;
     object-fit: cover;
     border: 2px solid #ddd;
-    transition: 0.3s;
+    display: block;
+    /* EXERCICI 1: Transició aplicada a transform i filter */
+    transition: transform 0.4s ease, filter 0.4s ease, border-color 0.4s ease;
 }
 
-/* Hover galeria: border i fosca [cite: 144] */
+/* EXERCICI 1: Hover galeria amb scale, rotate i grayscale */
 .galeria-foto img:hover {
+    transform: scale(1.15) rotate(3deg);
+    filter: grayscale(100%) brightness(60%) !important;
     border-color: black;
-    filter: brightness(40%) !important;
 }
 
-/* Requeriment: Imatges 1, 4, 5 i 8 més fosques [cite: 147] */
+/* Requeriment original: Imatges 1, 4, 5 i 8 més fosques */
 .galeria-foto:nth-child(1) img,
 .galeria-foto:nth-child(4) img,
 .galeria-foto:nth-child(5) img,
@@ -211,7 +289,75 @@ main {
     filter: brightness(60%);
 }
 
-/* COMENTARI: Formulari [cite: 150] */
+/* =====================================================
+ * COMENTARI EXERCICI 3 - SECCIÓ VÍDEO
+ * Vídeo centrat, responsive, parat i silenciat per defecte
+ * ===================================================== */
+.seccio-video {
+    padding: 4rem 10%;
+    margin-bottom: 4rem;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: white;
+    text-align: center;
+}
+
+.seccio-video h2 {
+    color: var(--color-accent-formal);
+    margin-bottom: 2rem;
+}
+
+/* Contenidor amb posició relativa per situar els controls a sobre */
+.video-contenidor {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+}
+
+/* EXERCICI 3: Vídeo responsive, sense scroll horitzontal */
+#myVideo {
+    display: block;
+    width: 100%;
+    max-width: 640px;
+    height: auto;
+    /* Controls nadius ocults (Exercici 4) */
+}
+
+/* =====================================================
+ * COMENTARI EXERCICI 4 - CONTROLS PERSONALITZATS DEL VÍDEO
+ * Icones Material Icons situades dins del vídeo (capa fosca)
+ * ===================================================== */
+.video-controls {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    display: flex;
+    gap: 0.3rem;
+    background: rgba(0, 0, 0, 0.55);
+    border-radius: 6px;
+    padding: 0.3rem 0.5rem;
+}
+
+/* =====================================================
+ * COMENTARI EXERCICI 1b - TRANSICIÓ PRÒPIA (3 propietats CSS)
+ * Icones de vídeo: color, transform (scale) i text-shadow
+ * S'activa amb hover sobre cada icona de control
+ * ===================================================== */
+.icona-video {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.8rem;
+    cursor: pointer;
+    /* Transició de 3 propietats: color, transform i text-shadow */
+    transition: color 0.25s ease, transform 0.25s ease, text-shadow 0.25s ease;
+}
+
+.icona-video:hover {
+    color: var(--color-accent-formal);
+    transform: scale(1.2);
+    /* EXERCICI 4: Shadow sobre la icona en hover */
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.8), 0 0 20px rgba(212, 175, 55, 0.5);
+}
+
+/* COMENTARI: Formulari */
 .seccio-reserva { padding: 4rem 10%; }
 .formulari-grid {
     display: grid;
@@ -235,7 +381,7 @@ main {
     background: var(--color-secondary);
 }
 
-/* COMENTARI: Footer [cite: 161, 168] */
+/* COMENTARI: Footer */
 .peu-pagina {
     display: flex;
     justify-content: space-between;
@@ -248,7 +394,7 @@ main {
 .contacte-item { display: flex; align-items: center; gap: 10px; margin-bottom: 5px; }
 .footer-logo { width: 120px; }
 
-/* COMENTARI: Responsivitat [cite: adaptació] */
+/* COMENTARI: Responsivitat */
 @media (max-width: 768px) {
     .nav-container {
         padding: 1rem;
@@ -316,5 +462,12 @@ main {
         flex-direction: column;
         text-align: center;
         gap: 1rem;
+    }
+    .seccio-video {
+        padding: 4rem 5%;
+    }
+    /* EXERCICI 3 responsive: vídeo s'adapta a pantalles petites */
+    #myVideo {
+        max-width: 100%;
     }
 }
