@@ -13,7 +13,6 @@
 <body>
 
     <!-- Navegació principal -->
-    <!-- EXERCICI 5: El menú s'encongeix amb scroll via JS -->
     <nav class="nav-principal" id="nav-principal">
         <div class="nav-container">
             <a href="#nosaltres" class="nav-link">Nosaltres</a>
@@ -26,7 +25,6 @@
     <a href="#reserva-section" class="boto-flotant">Reservar</a>
 
     <!-- Secció hero -->
-    <!-- EXERCICI 2: Animació d'entrada del text hero (CSS keyframes) -->
     <header class="hero">
         <div class="hero-content">
             <h1>Restaurant <strong>els coberts</strong></h1>
@@ -56,7 +54,6 @@
         </section>
 
         <!-- Secció Carta -->
-        <!-- EXERCICI 2b: Animació de 4 frames aplicada a les targetes de menú -->
         <section id="carta" class="seccio-carta">
             <h2>Carta</h2>
             <div class="grid-contenidor-carta">
@@ -97,7 +94,6 @@
         </section>
 
         <!-- Secció Galeria -->
-        <!-- EXERCICI 1: Transicions hover amb scale, rotate i grayscale -->
         <section id="galeria" class="seccio-galeria">
             <h2>Galeria d'imatges</h2>
             <div class="galeria-contenidor">
@@ -112,21 +108,16 @@
             </div>
         </section>
 
-        <!-- EXERCICI 3 i 4: Secció de vídeo amb controls personalitzats -->
         <section id="video-section" class="seccio-video">
             <h2>Vídeos del restaurant</h2>
             <div class="video-contenidor">
                 <!-- Vídeo sense controls nadius (els ocultem via CSS) -->
-                <!-- EXERCICI 3: video parat, silenciat i centrat -->
-                <!-- EXERCICI 4: controls propis amb icones Material -->
                 <video id="myVideo" muted>
                     <source src="videos/restaurant.mp4" type="video/mp4">
                     El teu navegador no suporta l'etiqueta de vídeo.
                 </video>
                 <!-- Capa de controls personalitzats dins del vídeo -->
                 <div class="video-controls">
-                    <!-- EXERCICI 4: Icones play, pausa, volum i silenci -->
-                    <!-- EXERCICI 1b (transició pròpia): shadow + scale en hover de les icones -->
                     <span class="material-icons icona-video" id="btn-play" title="Reproduir">play_circle</span>
                     <span class="material-icons icona-video" id="btn-pausa" title="Pausa">pause_circle</span>
                     <span class="material-icons icona-video" id="btn-volum" title="Activar so">volume_up</span>
@@ -185,10 +176,6 @@
 
     <!-- EXERCICI 4 i 5: JavaScript per controls de vídeo i scroll -->
     <script>
-        /* =========================================================
-         * EXERCICI 4 - Controls personalitzats del vídeo
-         * Usem l'API HTML5 Video DOM per play/pause/mute/unmute
-         * ========================================================= */
         const video = document.getElementById('myVideo');
         const btnPlay   = document.getElementById('btn-play');
         const btnPausa  = document.getElementById('btn-pausa');
@@ -215,10 +202,6 @@
             video.muted = true;
         });
 
-        /* =========================================================
-         * EXERCICI 5 - Navbar que s'encongeix en fer scroll
-         * Referència: w3schools.com/howto/howto_js_navbar_shrink_scroll.asp
-         * ========================================================= */
         window.addEventListener('scroll', function() {
             const nav = document.getElementById('nav-principal');
             if (window.scrollY > 80) {
@@ -228,10 +211,6 @@
             }
         });
 
-        /* =========================================================
-         * EXERCICI 5 - Autoplay del vídeo quan arriba a la secció
-         * Usem IntersectionObserver per detectar quan és visible
-         * ========================================================= */
         const seccioVideo = document.getElementById('video-section');
 
         const observador = new IntersectionObserver(function(entries) {
