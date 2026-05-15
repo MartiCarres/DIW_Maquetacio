@@ -81,10 +81,6 @@ main {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-/* =====================================================
- * COMENTARI EXERCICI 2 - ANIMACIÓ HERO (keyframes CSS)
- * El text apareix, puja i canvia de color taronja a blanc
- * ===================================================== */
 @keyframes apareixerText {
     0% {
         opacity: 0;
@@ -132,7 +128,6 @@ main {
     max-width: 600px;
 }
 
-/* EXERCICI 2: Apliquem l'animació al h1 i al paràgraf de la capçalera */
 .hero-content h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
@@ -226,10 +221,6 @@ main {
     padding: 5px 0;
 }
 
-/* =====================================================
- * COMENTARI EXERCICI 2b - ANIMACIÓ DE 4 FRAMES (targeta menú)
- * Canvia: opacity, background-color, transform (3 propietats)
- * ===================================================== */
 @keyframes entradaTargeta {
     0%   { opacity: 0; background-color: #e0e0e0; transform: translateY(20px); }
     33%  { opacity: 0.4; background-color: #c8d8e8; transform: translateY(10px); }
@@ -246,11 +237,6 @@ main {
     opacity: 0;
 }
 
-/* =====================================================
- * COMENTARI EXERCICI 1 - TRANSICIONS GALERIA
- * Hover: scale, rotate i grayscale (filter)
- * overflow: hidden al pare per evitar desbordament
- * ===================================================== */
 .galeria-contenidor {
     display: grid;
     grid-template-columns: repeat(4, 180px);
@@ -289,10 +275,6 @@ main {
     filter: brightness(60%);
 }
 
-/* =====================================================
- * COMENTARI EXERCICI 3 - SECCIÓ VÍDEO
- * Vídeo centrat, responsive, parat i silenciat per defecte
- * ===================================================== */
 .seccio-video {
     padding: 4rem 10%;
     margin-bottom: 4rem;
@@ -322,10 +304,6 @@ main {
     /* Controls nadius ocults (Exercici 4) */
 }
 
-/* =====================================================
- * COMENTARI EXERCICI 4 - CONTROLS PERSONALITZATS DEL VÍDEO
- * Icones Material Icons situades dins del vídeo (capa fosca)
- * ===================================================== */
 .video-controls {
     position: absolute;
     top: 0.5rem;
@@ -337,11 +315,6 @@ main {
     padding: 0.3rem 0.5rem;
 }
 
-/* =====================================================
- * COMENTARI EXERCICI 1b - TRANSICIÓ PRÒPIA (3 propietats CSS)
- * Icones de vídeo: color, transform (scale) i text-shadow
- * S'activa amb hover sobre cada icona de control
- * ===================================================== */
 .icona-video {
     color: rgba(255, 255, 255, 0.85);
     font-size: 1.8rem;
@@ -466,7 +439,7 @@ main {
     .seccio-video {
         padding: 4rem 5%;
     }
-    /* EXERCICI 3 responsive: vídeo s'adapta a pantalles petites */
+
     #myVideo {
         max-width: 100%;
     }
